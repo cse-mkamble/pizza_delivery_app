@@ -5,7 +5,7 @@ import pizzas from '../pizzasdata.js'
 function Homescreen() {
     return (
         <div>
-            <div className='row'>
+            <div className='row' style={{ margin: 0 }}>
                 {
                     pizzas.map(pizza => {
                         return <div className='col-md-4' >
