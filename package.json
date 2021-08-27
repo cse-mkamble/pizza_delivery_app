@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/cse-mkamble/pizza_delivery_app#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "concurrently": "^6.2.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
