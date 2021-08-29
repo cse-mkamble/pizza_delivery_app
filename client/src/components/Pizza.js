@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from "react-bootstrap";
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions'
 
 const Pizza = ({ pizza }) => {
 
@@ -7,8 +9,14 @@ const Pizza = ({ pizza }) => {
     const [varient, setvarient] = useState('small')
     const [show, setShow] = useState(false);
 
+    const dispatch = useDispatch()
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const btnAddToCart = () => {
+        dispatch(addToCart(pizza, quantity, varient))
+    }
 
     return (
         <div>
@@ -38,7 +46,6 @@ const Pizza = ({ pizza }) => {
                             })}
                         </select>
                     </div>
-
                 </div>
 
                 <div className='flex-container'>
@@ -46,7 +53,7 @@ const Pizza = ({ pizza }) => {
                         <h1 className=' mt-1 '>Price : {pizza.prices[0][varient] * quantity}</h1>
                     </div>
                     <div className='m-1 w-100'>
-                        <button className='btn'>ADD TO CART</button>
+                        <button className='btn' onClick={btnAddToCart} >ADD TO CART</button>
                     </div>
                 </div>
             </div>

@@ -1,23 +1,23 @@
-import { pizzaConstants } from "../constants"
+import { constants } from "../constants"
 
 export const getAllPizzasReducer = (state = {
     pizzas: []
 }, action) => {
 
     switch (action.type) {
-        case pizzaConstants.GET_PIZZAS_REQUEST:
+        case constants.GET_PIZZAS_REQUEST:
             return {
                 loading: true,
                 ...state
             }
 
-        case pizzaConstants.GET_PIZZAS_SUCCESS:
+        case constants.GET_PIZZAS_SUCCESS:
             return {
                 loading: false,
                 pizzas: action.payload
             }
 
-        case pizzaConstants.GET_PIZZAS_FAILED:
+        case constants.GET_PIZZAS_FAILED:
             return {
                 loading: false,
                 error: action.payload
