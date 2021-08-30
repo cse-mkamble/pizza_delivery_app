@@ -6,6 +6,7 @@ const Cartscreen = () => {
 
     const cartState = useSelector(state => state.cartReducer)
     const cartItems = cartState.cartItems
+    var subTotal = cartItems.reduce((x, item) => x + item.price, 0)
     const dispatch = useDispatch()
 
     return (
@@ -35,7 +36,10 @@ const Cartscreen = () => {
                     })}
                 </div>
 
-                <div className="col-md-4"></div>
+                <div className="col-md-4 text-right p-3">
+                    <h2 style={{ fontSize: '30px' }}>SubTotal : {subTotal}/-</h2>
+                    <button className="btn">CHECK OUT</button>
+                </div>
             </div>
         </div>
     )
