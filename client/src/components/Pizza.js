@@ -14,7 +14,7 @@ const Pizza = ({ pizza }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const btnAddToCart = () => {
+    function btnAddToCart() {
         dispatch(addToCart(pizza, quantity, varient))
     }
 

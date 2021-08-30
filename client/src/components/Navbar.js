@@ -15,7 +15,7 @@ const Navbar = () => {
                             <a className="nav-link" href="#">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <a className="nav-link" href="/cart">
                                 Cart {cartState.cartItems.length}
                             </a>
                         </li>
