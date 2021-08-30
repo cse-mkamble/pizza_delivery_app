@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div id="navbarNav">
                     <ul style={{ display: 'flex', listStyle: 'none' }} >
                         <li className="nav-item ">
-                            <a className="nav-link" href="#">Login</a>
+                            <a className="nav-link" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/cart">
