@@ -12,7 +12,23 @@ export const addToCart = (pizza, quantity, varient) => (dispatch, getState) => {
         price: pizza.prices[0][varient] * quantity
     }
 
-    dispatch({ type: constants.ADD_TO_CART, payload: cartItem })
+    if (cartItem.quantity > 10) {
+        alert('You cannot add more than 10 quantities')
+    } else {
+        if (cartItem.quantity < 1) {
+            dispatch({ type: constants.DELETE_FROM_CART, payload: pizza })
+        } else {
+            dispatch({ type: constants.ADD_TO_CART, payload: cartItem })
+        }
+    }
+
+    const cartItems = getState().cartReducer.cartItems
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+
+}
+
+export const deleteFromCart = (pizza) => (dispatch, getState) => {
+    dispatch({ type: constants.DELETE_FROM_CART, payload: pizza })
 
     const cartItems = getState().cartReducer.cartItems
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
