@@ -3,7 +3,7 @@ const User = require('../models/userModel')
 class userController {
   
   async register(request, response) {
-    const { name, phone, password } = request.body
+    const { name, phone, password } = request.body.user
     const newUser = new User({ name, phone, password })
     try {
       newUser.save()
@@ -14,9 +14,9 @@ class userController {
   }
 
   async login(request, response) {
-    const { phone, password } = request.body
+    const { phone, password } = request.body.user
     try {
-      let data = await User.findOne({ phone, password })
+      const data = await User.findOne({ phone, password })
       if (!data) return response.status(400).json({ message: 'Login failed!' })
       response.json({ success: 'User Login Successfully.', user: data })
     } catch (error) {
