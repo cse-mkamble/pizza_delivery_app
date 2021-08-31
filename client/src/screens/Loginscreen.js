@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from "../redux/actions";
 
@@ -6,8 +6,14 @@ const Loginscreen = () => {
 
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
-    
+
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(localStorage.getItem('user')){
+            window.location.href = '/'
+        }
+    }, [])
 
     const login = () => {
         if (!password) {

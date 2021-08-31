@@ -4,10 +4,14 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
 
 const initialState = {
     cartReducer: {
         cartItems: cartItems
+    },
+    userReducer: {
+        user: user
     }
 }
 

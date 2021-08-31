@@ -16,6 +16,8 @@ export const loginUser = (user) => async dispatch => {
     try {
         const res = await axios.post(`/api/user/login`, { user })
         dispatch({ type: constants.USER_LOGIN_SUCCESS, payload: res.data })
+        localStorage.setItem('user', JSON.stringify(res.data.user))
+        window.location.href = '/'
     } catch (error) {
         dispatch({ type: constants.USER_LOGIN_FAILED, payload: error })
     }
