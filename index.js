@@ -5,7 +5,8 @@ const cors = require("cors");
 const connectDB = require('./src/config/db')
 
 // Import Router
-const pizzasRoute = require("./src/routes/pizzasRoute");
+const pizzasRoute = require("./src/routes/pizzasRoute")
+const userRoute = require("./src/routes/userRoute")
 
 // Import Auth middleware for check user login or not~
 // const { loginCheck } = require("./src/middleware/auth");
@@ -22,7 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api", pizzasRoute);
-
+app.use("/api", userRoute)
 
 // Run Server
 const PORT = process.env.PORT || 8000;

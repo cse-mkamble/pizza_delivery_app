@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { registerUser } from "../redux/actions";
 
 const Registerscreen = () => {
 
     const [name, setname] = useState('')
-    const [email, setemail] = useState('')
+    const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+
+    const dispatch = useDispatch()
 
     const register = () => {
         if (password != cpassword) {
             alert("passwords not matched")
         } else {
-            const user = { name, email, password }
-            console.log(user)
+            const user = { name, phone, password }
+            // console.log(user)
+            dispatch(registerUser(user))
         }
     }
 
@@ -34,10 +39,10 @@ const Registerscreen = () => {
                         <input
                             required
                             type="text"
-                            placeholder="email"
+                            placeholder="phone"
                             className="form-control"
-                            value={email}
-                            onChange={(e) => setemail(e.target.value)}
+                            value={phone}
+                            onChange={(e) => setphone(e.target.value)}
                         />
 
                         <input
