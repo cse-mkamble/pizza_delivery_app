@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import "bootstrap"
 import Navbar from './components/Navbar'
 import Homescreen from './screens/Homescreen'
 import Cartscreen from './screens/Cartscreen'

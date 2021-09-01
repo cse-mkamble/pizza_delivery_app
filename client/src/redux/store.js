@@ -10,7 +10,7 @@ const initialState = {
     cartReducer: {
         cartItems: cartItems
     },
-    userReducer: {
+    loginUserReducer: {
         user: user
     }
 }
