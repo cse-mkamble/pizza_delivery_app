@@ -6,8 +6,10 @@ class userController {
     const { name, phone, password } = request.body.user
     const newUser = new User({ name, phone, password })
     try {
+      const data = await User.findOne({ phone })
+      if (data) return response.status(400).json({ message: 'Already Registered.' })
       newUser.save()
-      response.send('User Registered Successfully')
+      response.send('Registration Successful.')
     } catch (error) {
       return response.status(400).json({ message: error })
     }

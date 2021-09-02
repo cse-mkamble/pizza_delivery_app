@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from "../redux/actions";
 
 const Navbar = () => {
 
+    const dispatch = useDispatch()
     const cartstate = useSelector(state => state.cartReducer)
     const userstate = useSelector(state => state.loginUserReducer)
     const { user } = userstate
@@ -19,8 +21,8 @@ const Navbar = () => {
                                     {user.name}
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Order</a></li>
-                                    <li><a className="dropdown-item" href="#">LOGUOT</a></li>
+                                    <li><a className="dropdown-item" href='' >Order</a></li>
+                                    <li><a className="dropdown-item" href='' onClick={() => { dispatch(logoutUser()) }} >Logout</a></li>
                                 </ul>
                             </div>
                         ) : (

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { registerUser } from "../redux/actions";
+import Loading from '../components/Loading'
+import Error from '../components/Error'
+import Success from '../components/Success'
 
 const Registerscreen = () => {
 
@@ -8,6 +11,8 @@ const Registerscreen = () => {
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+    const registerstate = useSelector(state => state.registerUserReducer)
+    const { error, success, loading } = registerstate
 
     const dispatch = useDispatch()
 
@@ -16,16 +21,18 @@ const Registerscreen = () => {
             alert("passwords not matched")
         } else {
             const user = { name, phone, password }
-            // console.log(user)
             dispatch(registerUser(user))
         }
     }
 
     return (
         <div>
-            <div className="justify-content-center mt-5" style={{ display: 'flex' }} >
-                <div className="col-md-5 text-left">
+            <div className="justify-content-center mt-5" style={{ display: 'flex', margin: '10px' }} >
+                <div className="col-md-5 text-left shadow-lg mb-5 bg-white rounded" style={{ padding: '20px 10px' }} >
                     <h2 className='text-center m-2' style={{ fontSize: '35px' }}>Register</h2>
+                    {loading && (<Loading/>)}
+                    {error && (<Error error='Already Registered.'/>)}
+                    {success && (<Success success='Registration Successful. Please Login ...' />)}
                     <div>
                         <input
                             required
@@ -63,6 +70,10 @@ const Registerscreen = () => {
                             onChange={(e) => setcpassword(e.target.value)}
                         />
                         <button onClick={register} className='btn mt-3'>REGISTER</button>
+                        <hr />
+                        <div style={{ textAlign: 'center' }}>
+                            <a style={{ color: 'black' }} href='/login'>Click Here To Login</a>
+                        </div>
                     </div>
                 </div>
             </div>
