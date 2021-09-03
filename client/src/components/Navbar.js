@@ -10,7 +10,12 @@ const Navbar = () => {
     const { user } = userstate
 
     return (
-        <div>
+        <div style={{
+            position: 'fixed',
+            zIndex: 10,
+            width: '100%',
+            top: 0
+        }}>
             <nav style={{ justifyContent: 'space-between' }} className="navbar navbar-expand-lg shadow-lg  mb-5 bg-white rounded ">
                 <a className="navbar-brand" href="/">PIZZA</a>
                 <div id="navbarNav">

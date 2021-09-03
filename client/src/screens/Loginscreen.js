@@ -56,7 +56,7 @@ const Loginscreen = () => {
                             onChange={(e) => setpassword(e.target.value)}
                         />
 
-                        <button onClick={login} className='btn mt-3'>LOGIN</button>
+                        <button onClick={login} className='btn btn-danger mt-3'>LOGIN</button>
                         <hr />
                         <div style={{ textAlign: 'center' }}>
                             <a style={{ color: 'black' }} href='/register'>Click Here To Register</a>

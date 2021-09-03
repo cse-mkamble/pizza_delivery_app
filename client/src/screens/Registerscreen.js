@@ -69,7 +69,7 @@ const Registerscreen = () => {
                             value={cpassword}
                             onChange={(e) => setcpassword(e.target.value)}
                         />
-                        <button onClick={register} className='btn mt-3'>REGISTER</button>
+                        <button onClick={register} className='btn mt-3 btn-danger '>REGISTER</button>
                         <hr />
                         <div style={{ textAlign: 'center' }}>
                             <a style={{ color: 'black' }} href='/login'>Click Here To Login</a>

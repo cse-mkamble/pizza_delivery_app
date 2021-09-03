@@ -11,14 +11,14 @@ const App = () => {
   return (
     <div className='App' >
       <Navbar />
-      <BrowserRouter>
-        
-        <Route path="/" exact component={Homescreen} />
-        <Route path="/cart" exact component={Cartscreen} />
-        <Route path="/login" exact component={Loginscreen} />
-        <Route path="/register" exact component={Registerscreen} />
-
-      </BrowserRouter>
+      <div style={{ paddingTop: '100px' }}>
+        <BrowserRouter>
+          <Route path="/" exact component={Homescreen} />
+          <Route path="/cart" exact component={Cartscreen} />
+          <Route path="/login" exact component={Loginscreen} />
+          <Route path="/register" exact component={Registerscreen} />
+        </BrowserRouter>
+      </div>
     </div>
   )
 }

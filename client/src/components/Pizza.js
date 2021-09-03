@@ -53,7 +53,7 @@ const Pizza = ({ pizza }) => {
                         <h1 className=' mt-1 '>Price : {pizza.prices[0][varient] * quantity}</h1>
                     </div>
                     <div className='m-1 w-100'>
-                        <button className='btn' onClick={btnAddToCart} >ADD TO CART</button>
+                        <button className='btn btn-danger' onClick={btnAddToCart} >ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const Pizza = ({ pizza }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <button className="btn" onClick={handleClose}>Close</button>
+                    <button className="btn btn-danger " onClick={handleClose}>Close</button>
                 </Modal.Footer>
             </Modal>
 
