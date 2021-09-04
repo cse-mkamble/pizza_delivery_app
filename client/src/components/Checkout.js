@@ -34,7 +34,7 @@ const Checkout = ({ subTotal }) => {
                 setLngt(position.coords.longitude)
             })
             var lattLngt = latt + ',' + lngt
-            if (lattLngt) {
+            if (latt && lngt) {
                 dispatch(placeOrder(subTotal, lattLngt, address))
                 setLatt("")
                 setLngt("")
@@ -46,7 +46,7 @@ const Checkout = ({ subTotal }) => {
     }
 
     return (
-        <div>            
+        <div>
 
             {loading && (<Loading />)}
             {error && (<Error error='Something went wrong!' />)}
