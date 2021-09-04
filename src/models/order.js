@@ -10,13 +10,16 @@ const orderSchema = mongoose.Schema({
         type: String,
         require
     },
-    userid: {
+    user_id: {
         type: String,
         require
     },
     orderItems: [],
     shippingAddress: {
-        type: Object
+        type: String
+    },
+    lattLngt: {
+        type: String
     },
     orderAmount: {
         type: Number,
@@ -24,7 +27,8 @@ const orderSchema = mongoose.Schema({
     },
     isDelivered: {
         type: Boolean,
-        require
+        require,
+        default: false
     }
 
 }, {

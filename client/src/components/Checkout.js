@@ -1,25 +1,43 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from "react-bootstrap"
+import { useSelector, useDispatch } from 'react-redux';
+import { placeOrder } from '../redux/actions'
 
-const Checkout = () => {
+const Checkout = ({ subTotal }) => {
 
     const [addressType, setAddressType] = useState("");
     const [address, setAddress] = useState("")
+    const [latt, setLatt] = useState("")
+    const [lngt, setLngt] = useState("")
     const [show, setShow] = useState(false);
 
-    const handleClose = () =>{
+    const dispatch = useDispatch()
+
+    const handleClose = () => {
         setAddress("")
         setAddressType("")
         setShow(false)
-    } 
+    }
     const handleShow = () => setShow(true);
 
     const handleOrder = () => {
-        console.log('Order Now', address)
-
-        setAddress("")
-        setAddressType("")
-        setShow(false)
+        if (!addressType) {
+            alert("Please Select Address!")
+        } else {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                setLatt(position.coords.latitude)
+                setLngt(position.coords.longitude)
+            })
+            var lattLngt = latt + ',' + lngt
+            if (lattLngt) {
+                dispatch(placeOrder(subTotal, lattLngt, address))
+                setLatt("")
+                setLngt("")
+                setAddress("")
+                setAddressType("")
+                setShow(false)
+            }
+        }
     }
 
     return (
@@ -41,6 +59,7 @@ const Checkout = () => {
                             <div className="flexRow">
                                 <div style={{ display: 'flex' }}>
                                     <input
+                                        required
                                         type="radio"
                                         onClick={() => setAddressType("home")}
                                         name="addressType"
@@ -50,6 +69,7 @@ const Checkout = () => {
                                 </div>
                                 <div style={{ display: 'flex' }}>
                                     <input
+                                        required
                                         type="radio"
                                         onClick={() => setAddressType("another")}
                                         name="addressType"
@@ -65,6 +85,7 @@ const Checkout = () => {
                                     <textarea
                                         style={{ width: '100%' }}
                                         rows="6"
+                                        placeholder="Address ( Area And Street )"
                                         name="address"
                                         value={address}
                                         onChange={(e) => setAddress(e.target.value)}

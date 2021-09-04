@@ -7,6 +7,7 @@ const connectDB = require('./src/config/db')
 // Import Router
 const pizzasRoute = require("./src/routes/pizzasRoute")
 const userRoute = require("./src/routes/userRoute")
+const orderRoute = require("./src/routes/orderRoute")
 
 // Import Auth middleware for check user login or not~
 // const { loginCheck } = require("./src/middleware/auth");
@@ -24,6 +25,7 @@ app.use(cookieParser());
 // Routes
 app.use("/api", pizzasRoute);
 app.use("/api", userRoute)
+app.use("/api", orderRoute)
 
 // Run Server
 const PORT = process.env.PORT || 8000;
