@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Modal, Button, Form } from "react-bootstrap"
 import { useSelector, useDispatch } from 'react-redux';
 import { placeOrder } from '../redux/actions'
+import Loading from '../components/Loading'
+import Error from '../components/Error'
+import Success from '../components/Success'
 
 const Checkout = ({ subTotal }) => {
 
@@ -11,6 +14,8 @@ const Checkout = ({ subTotal }) => {
     const [lngt, setLngt] = useState("")
     const [show, setShow] = useState(false);
 
+    const orderstate = useSelector(state => state.placeOrderReducer)
+    const { error, success, loading } = orderstate
     const dispatch = useDispatch()
 
     const handleClose = () => {
@@ -41,11 +46,13 @@ const Checkout = ({ subTotal }) => {
     }
 
     return (
-        <div>
+        <div>            
+
+            {loading && (<Loading />)}
+            {error && (<Error error='Something went wrong!' />)}
+            {success && (<Success success='Your Order Placed Succssfully.' />)}
+
             <button className="btn btn-danger " onClick={handleShow}>CHECK OUT</button>
-
-
-
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

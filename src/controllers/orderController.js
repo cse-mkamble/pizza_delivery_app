@@ -23,6 +23,16 @@ class orderController {
         }
     }
 
+    async getUserAllOrders(request, response) {
+        const { user_id } = request.body
+        try {
+            const orders = await order.find({ user_id: user_id })
+            response.send(orders)
+        } catch (error) {
+            return response.status(400).json({ message: error })
+        }
+    }
+
 }
 
 module.exports = new orderController()

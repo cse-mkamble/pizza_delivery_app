@@ -6,6 +6,7 @@ import Homescreen from './screens/Homescreen'
 import Cartscreen from './screens/Cartscreen'
 import Loginscreen from './screens/Loginscreen'
 import Registerscreen from './screens/Registerscreen'
+import Orderscreen from './screens/Orderscreen'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/cart" exact component={Cartscreen} />
           <Route path="/login" exact component={Loginscreen} />
           <Route path="/register" exact component={Registerscreen} />
+          <Route path="/myorders" exact component={Orderscreen} />
         </BrowserRouter>
       </div>
     </div>
