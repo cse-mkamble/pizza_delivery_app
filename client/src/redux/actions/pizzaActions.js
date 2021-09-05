@@ -24,10 +24,6 @@ export const filterPizzas = (searchKey, category) => async dispatch => {
         } else {
             filterPizzas = res.data.filter(pizza => pizza.name.toLowerCase().includes(searchKey))
         }
-        // filterPizzas = res.data.filter(pizza => pizza.name.toLowerCase().includes(searchKey))
-        // if (category!='all') {
-        //     filterPizzas = res.data.filter(pizza => pizza.category.toLowerCase()==category)
-        // }
         dispatch({ type: constants.GET_PIZZAS_SUCCESS, payload: filterPizzas })
     } catch (error) {
         dispatch({ type: constants.GET_PIZZAS_FAILED, payload: error })
