@@ -4,6 +4,7 @@ import { getAllPizzas } from '../redux/actions'
 import Pizza from '../components/Pizza.js'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
+import Filter from '../components/Filter'
 
 const Homescreen = () => {
 
@@ -17,6 +18,7 @@ const Homescreen = () => {
 
     return (
         <div>
+            <Filter />
             <div className='row justify-content-center' style={{ margin: 0 }}>
                 {
                     loading ? (
