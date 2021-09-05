@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk";
-import rootReducer from "./reducers";
+import rootReducer from "./redux/reducers";
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null

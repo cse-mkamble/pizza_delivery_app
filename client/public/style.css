@@ -101,3 +101,31 @@ input{
   color: rgba(237, 242, 247, var(--text-opacity));
 }
 
+/* ===============[ Admin ]=============== */
+
+.adminfunctions{
+  padding: 10px;
+  background-color: rgb(46 136 127);
+}
+
+.adminfunctions li{
+  list-style-type: none !important;
+  padding: 20px;
+  display: inline;
+}
+
+
+/* ============================================================ */
+/* ===============[ Screen Design Change ]=============== */
+/* ============================================================ */
+
+
+@media screen and (max-width: 600px) {
+  
+  .adminfunctions li{
+    list-style-type: none !important;
+    padding: 5px;
+    display: block;
+  }
+
+}

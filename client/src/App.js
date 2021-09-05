@@ -7,6 +7,7 @@ import Cartscreen from './screens/Cartscreen'
 import Loginscreen from './screens/Loginscreen'
 import Registerscreen from './screens/Registerscreen'
 import Orderscreen from './screens/Orderscreen'
+import Adminscreen from './Admin/screens/Adminscreen'
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
           <Route path="/login" exact component={Loginscreen} />
           <Route path="/register" exact component={Registerscreen} />
           <Route path="/myorders" exact component={Orderscreen} />
+          <Route path="/admin" component={Adminscreen} />
+
         </BrowserRouter>
       </div>
     </div>
