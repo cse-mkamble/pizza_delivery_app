@@ -6,7 +6,7 @@ const pizzasController = require('../controllers/pizzasController')
 router.get('/pizzas/getallpizzas', pizzasController.index)
 router.post('/pizzas/getpizzabyid', pizzasController.show)
 router.post('/pizzas/addpizza', pizzasController.store)
-router.put('/pizzas/:id', pizzasController.update)
+router.post('/pizzas/editpizza', pizzasController.update)
 router.delete('/pizzas/:id', pizzasController.delete)
 
 module.exports = router

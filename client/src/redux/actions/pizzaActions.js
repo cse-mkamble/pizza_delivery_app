@@ -55,6 +55,7 @@ export const editPizza = (editedpizza) => async dispatch => {
     try {
         const res = await axios.post(`/api/pizzas/editpizza`, { editedpizza })
         dispatch({ type: constants.EDIT_PIZZA_SUCCESS })
+        window.location.href = '/admin/pizzaslist'
     } catch (error) {
         dispatch({ type: constants.EDIT_PIZZA_FAILED, payload: error })
     }

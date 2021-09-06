@@ -39,7 +39,19 @@ class pizzasController {
   }
 
   async update(request, response) {
-    return response.json({})
+    const editedpizza = request.body.editedpizza
+    try {
+      const pizza = await Pizzas.findOne({ _id: editedpizza._id })
+      pizza.name = editedpizza.name
+      pizza.description = editedpizza.description
+      pizza.image = editedpizza.image
+      pizza.category = editedpizza.category
+      pizza.prices = [editedpizza.prices]
+      await pizza.save()
+      response.send('Pizza Details Edited Successfully.')
+    } catch (error) {
+      return response.status(400).json({ message: error })
+    }
   }
 
   async delete(request, response) {

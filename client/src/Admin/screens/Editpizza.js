@@ -43,6 +43,7 @@ const Editpizza = ({ match }) => {
     const formHandle = (e) => {
         e.preventDefault();
         const editedpizza = {
+            _id: match.params.pizzaid,
             name,
             image,
             description,
@@ -53,8 +54,7 @@ const Editpizza = ({ match }) => {
                 large: largeprice,
             }
         }
-        console.log(editedpizza)
-        // dispatch(editPizza(editedpizza))
+        dispatch(editPizza(editedpizza))
     }
 
     return (
@@ -67,7 +67,7 @@ const Editpizza = ({ match }) => {
             {error && (<Error error='Something went wrong!' />)}
             {editloading && (<Loading />)}
             {editerror && (<Error error='Something went wrong!' />)}
-            {editsuccess && (<Success success='New Pizza Added Successfully.' />)}
+            {editsuccess && (<Success success='Pizza Details Edited Successfully.' />)}
 
             <div style={{ textAlign: 'left', padding: '10px' }}>
                 <form onSubmit={formHandle}>
