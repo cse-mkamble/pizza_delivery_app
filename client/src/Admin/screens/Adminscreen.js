@@ -6,6 +6,7 @@ import Addpizza from './Addpizza'
 import Orderslist from './Orderslist'
 import Pizzaslist from './Pizzaslist'
 import Userslist from './Userslist'
+import Editpizza from './Editpizza'
 
 const Adminscreen = () => {
 
@@ -46,6 +47,7 @@ const Adminscreen = () => {
                         <Route path="/admin/orderslist" component={Orderslist} exact />
                         <Route path="/admin/pizzaslist" component={Pizzaslist} exact />
                         <Route path="/admin/addpizza" component={Addpizza} exact />
+                        <Route path="/admin/editpizza/:pizzaid" component={Editpizza} exact />
                     </Switch>
                 </div>
             </div>

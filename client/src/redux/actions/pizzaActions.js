@@ -39,3 +39,13 @@ export const addPizza = (pizza) => async dispatch => {
         dispatch({ type: constants.ADD_PIZZA_FAILED, payload: error })
     }
 }
+
+export const getPizzaById = (pizzaid) => async dispatch => {
+    dispatch({ type: constants.GET_PIZZABYID_REQUEST })
+    try {
+        const res = await axios.post(`/api/pizzas/getpizzabyid`, { pizzaid })
+        dispatch({ type: constants.GET_PIZZABYID_SUCCESS, payload: res.data })
+    } catch (error) {
+        dispatch({ type: constants.GET_PIZZABYID_FAILED, payload: error })
+    }
+}

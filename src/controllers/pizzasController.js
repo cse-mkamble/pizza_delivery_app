@@ -11,7 +11,13 @@ class pizzasController {
   }
 
   async show(request, response) {
-    return response.json({})
+    const pizzaid = request.body.pizzaid
+    try {
+      const pizza = await Pizzas.findOne({ _id: pizzaid })
+      response.send(pizza)
+    } catch (error) {
+      return response.status(400).json({ message: error })
+    }
   }
 
   async store(request, response) {

@@ -3,29 +3,24 @@ import { constants } from "../constants"
 export const getAllPizzasReducer = (state = {
     pizzas: []
 }, action) => {
-
     switch (action.type) {
         case constants.GET_PIZZAS_REQUEST:
             return {
                 loading: true,
                 ...state
             }
-
         case constants.GET_PIZZAS_SUCCESS:
             return {
                 loading: false,
                 pizzas: action.payload
             }
-
         case constants.GET_PIZZAS_FAILED:
             return {
                 loading: false,
                 error: action.payload
             }
-
         default:
             return state
-
     }
 }
 
@@ -42,6 +37,28 @@ export const addPizzaReducer = (state = {}, action) => {
                 success: true
             }
         case constants.ADD_PIZZA_FAILED:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+export const getPizzaByIdReducer = (state = {}, action) => {
+    switch (action.type) {
+        case constants.GET_PIZZABYID_REQUEST:
+            return {
+                loading: true,
+                ...state
+            }
+        case constants.GET_PIZZABYID_SUCCESS:
+            return {
+                loading: false,
+                pizzas: action.payload
+            }
+        case constants.GET_PIZZABYID_FAILED:
             return {
                 loading: false,
                 error: action.payload

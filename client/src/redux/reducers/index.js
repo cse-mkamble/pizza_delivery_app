@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { getAllPizzasReducer, addPizzaReducer } from "./pizzaReducer";
+import { getAllPizzasReducer, addPizzaReducer, getPizzaByIdReducer } from "./pizzaReducer";
 import { cartReducer } from "./cartReducer";
 import { registerUserReducer, loginUserReducer } from "./userReducer";
 import { placeOrderReducer, getUserOdersReducer } from "./orderReducer";
@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
     placeOrderReducer: placeOrderReducer,
     getUserOdersReducer: getUserOdersReducer,
     addPizzaReducer: addPizzaReducer,
+    getPizzaByIdReducer: getPizzaByIdReducer,
 });
 
 export default rootReducer;
