@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPizzas } from '../../redux/actions'
+import { getAllPizzas, deletePizza } from '../../redux/actions'
 import { Link } from 'react-router-dom'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
-import Success from '../../components/Success'
-import Filter from '../../components/Filter'
 
 const Pizzaslist = () => {
 
@@ -44,7 +42,7 @@ const Pizzaslist = () => {
                             </td>
                             <td>{pizza.category}</td>
                             <td>
-                                <i className='fa fa-trash m-2' style={{ color: 'red' }} ></i> 
+                                <i className='fa fa-trash m-2' style={{ color: 'red' }} onClick={() => { dispatch(deletePizza(pizza._id)) }} ></i>
                                 <Link to={`/admin/editpizza/${pizza._id}`} ><i className='fa fa-edit m-2' style={{ color: 'gray' }} ></i></Link>
                             </td>
                         </tr>

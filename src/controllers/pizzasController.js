@@ -55,7 +55,13 @@ class pizzasController {
   }
 
   async delete(request, response) {
-    return response.json({})
+    const pizzaid = request.body.pizzaid
+    try {
+      await Pizzas.findOneAndDelete({ _id: pizzaid })
+      response.send('Pizza Deleted Successfully.')
+    } catch (error) {
+      return response.status(400).json({ message: error })
+    }
   }
 }
 

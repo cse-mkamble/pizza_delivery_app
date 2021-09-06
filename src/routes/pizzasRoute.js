@@ -7,6 +7,6 @@ router.get('/pizzas/getallpizzas', pizzasController.index)
 router.post('/pizzas/getpizzabyid', pizzasController.show)
 router.post('/pizzas/addpizza', pizzasController.store)
 router.post('/pizzas/editpizza', pizzasController.update)
-router.delete('/pizzas/:id', pizzasController.delete)
+router.post('/pizzas/deletepizza', pizzasController.delete)
 
 module.exports = router
