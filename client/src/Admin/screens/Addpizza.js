@@ -98,6 +98,7 @@ const Addpizza = () => {
                     <button
                         className="btn btn-danger"
                         style={{ margin: '20px 0', width: '240px' }}
+                        type='submit'
                     >
                         ADD PIZZA
                     </button>
