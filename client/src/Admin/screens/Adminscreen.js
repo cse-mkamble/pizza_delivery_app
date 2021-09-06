@@ -14,14 +14,14 @@ const Adminscreen = () => {
     const { user } = userstate
 
     useEffect(() => {
-        if (user.isAdmin === 'false') {
+        if (!(user) || !(user.isAdmin)) {
             window.location.href = '/'
         }
     }, [])
 
     return (
         <div>
-            <div className='row w-100' style={{ margin: 0 }}>
+            <div className='row justify-content-center w-100' style={{ margin: 0 }}>
                 <div className='col-md-12' >
                     <h2 style={{ fontSize: '30px' }} >Admin Panel</h2>
                     <hr />
