@@ -5,7 +5,7 @@ const pizzasController = require('../controllers/pizzasController')
 // pizzas
 router.get('/pizzas/getallpizzas', pizzasController.index)
 router.get('/pizzas/:id', pizzasController.show)
-router.post('/pizzas', pizzasController.store)
+router.post('/pizzas/addpizza', pizzasController.store)
 router.put('/pizzas/:id', pizzasController.update)
 router.delete('/pizzas/:id', pizzasController.delete)
 

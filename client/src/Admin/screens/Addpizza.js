@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { addPizza } from '../../redux/actions'
+import Loading from '../../components/Loading'
+import Error from '../../components/Error'
+import Success from '../../components/Success'
 
 const Addpizza = () => {
 
@@ -9,6 +14,11 @@ const Addpizza = () => {
     const [image, setimage] = useState('')
     const [description, setdescription] = useState('')
     const [category, setcategory] = useState('')
+
+    const dispatch = useDispatch()
+
+    const addpizzastate = useSelector(state => state.addPizzaReducer)
+    const { success, error, loading } = addpizzastate
 
     const formHandle = (e) => {
         e.preventDefault();
@@ -23,13 +33,16 @@ const Addpizza = () => {
                 large: largeprice,
             }
         }
-        console.log(pizza)
+        dispatch(addPizza(pizza))
     }
 
     return (
         <div>
             Add Pizza
-            <hr/>
+            <hr />
+            {loading && (<Loading />)}
+            {error && (<Error error='Something went wrong!' />)}
+            {success && (<Success success='New Pizza Added Successfully.' />)}
 
             <div style={{ textAlign: 'left', padding: '10px' }}>
                 <form onSubmit={formHandle}>
@@ -40,7 +53,6 @@ const Addpizza = () => {
                         value={name}
                         onChange={(e) => { setname(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -48,7 +60,6 @@ const Addpizza = () => {
                         value={smallprice}
                         onChange={(e) => { setsmallprice(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -56,7 +67,6 @@ const Addpizza = () => {
                         value={mediumprice}
                         onChange={(e) => { setmediumprice(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -64,7 +74,6 @@ const Addpizza = () => {
                         value={largeprice}
                         onChange={(e) => { setlargeprice(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -72,7 +81,6 @@ const Addpizza = () => {
                         value={image}
                         onChange={(e) => { setimage(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -80,7 +88,6 @@ const Addpizza = () => {
                         value={description}
                         onChange={(e) => { setdescription(e.target.value) }}
                     />
-
                     <input
                         className="form-control w-100"
                         type="text"
@@ -88,18 +95,14 @@ const Addpizza = () => {
                         value={category}
                         onChange={(e) => { setcategory(e.target.value) }}
                     />
-
                     <button
                         className="btn btn-danger"
                         style={{ margin: '20px 0', width: '240px' }}
                     >
                         ADD PIZZA
                     </button>
-
                 </form>
-
             </div>
-
         </div>
     )
 }
