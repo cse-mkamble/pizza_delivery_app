@@ -23,3 +23,14 @@ export const getUserOrders = () => async (dispatch, getState) => {
         dispatch({ type: constants.GET_USER_ORDERS_FAILED, payload: error })
     }
 }
+
+
+export const getAllOrders = () => async (dispatch, getState) => {
+    dispatch({ type: constants.GET_ALL_ORDERS_REQUEST })
+    try {
+        const res = await axios.get(`/api/orders/getallorders`)
+        dispatch({ type: constants.GET_ALL_ORDERS_SUCCESS, payload: res.data })
+    } catch (error) {
+        dispatch({ type: constants.GET_ALL_ORDERS_FAILED, payload: error })
+    }
+}

@@ -44,3 +44,27 @@ export const getUserOdersReducer = (state = {
             return state
     }
 }
+
+export const getAllOdersReducer = (state = {
+    orders: []
+}, action) => {
+    switch (action.type) {
+        case constants.GET_ALL_ORDERS_REQUEST:
+            return {
+                loading: true,
+                ...state
+            }
+        case constants.GET_ALL_ORDERS_SUCCESS:
+            return {
+                loading: false,
+                orders: action.payload
+            }
+        case constants.GET_ALL_ORDERS_FAILED:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}

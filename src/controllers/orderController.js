@@ -33,6 +33,15 @@ class orderController {
         }
     }
 
+    async getAllOrders(request, response) {
+        try {
+            const orders = await order.find({}).sort({ _id: -1 })
+            response.send(orders)
+        } catch (error) {
+            return response.status(400).json({ message: error })
+        }
+    }
+
 }
 
 module.exports = new orderController()

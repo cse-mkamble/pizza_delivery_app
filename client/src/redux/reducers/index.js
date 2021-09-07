@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { getAllPizzasReducer, addPizzaReducer, getPizzaByIdReducer, editPizzaReducer } from "./pizzaReducer";
 import { cartReducer } from "./cartReducer";
 import { registerUserReducer, loginUserReducer } from "./userReducer";
-import { placeOrderReducer, getUserOdersReducer } from "./orderReducer";
+import { placeOrderReducer, getUserOdersReducer,getAllOdersReducer } from "./orderReducer";
 
 const rootReducer = combineReducers({
     getAllPizzasReducer: getAllPizzasReducer,
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
     addPizzaReducer: addPizzaReducer,
     getPizzaByIdReducer: getPizzaByIdReducer,
     editPizzaReducer: editPizzaReducer,
+    getAllOdersReducer: getAllOdersReducer
 });
 
 export default rootReducer;
