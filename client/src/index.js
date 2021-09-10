@@ -8,11 +8,9 @@ import store from "./store"
 window.store = store
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
+    <React.StrictMode><Provider store={store}>
       <App />
-    </React.StrictMode>
-  </Provider>,
+  </Provider></React.StrictMode>,
   document.getElementById('ios')
 );
 
