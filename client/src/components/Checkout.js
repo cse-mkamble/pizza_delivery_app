@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Modal, Button, Form } from "react-bootstrap"
 import { useSelector, useDispatch } from 'react-redux';
+import Platform from 'platform'
 import { placeOrder } from '../redux/actions'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
@@ -18,6 +19,10 @@ const Checkout = ({ subTotal }) => {
     const { error, success, loading } = orderstate
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        
+    }, [])
+
     const handleClose = () => {
         setAddress("")
         setAddressType("")
@@ -29,13 +34,24 @@ const Checkout = ({ subTotal }) => {
         if (!addressType) {
             alert("Please Select Address!")
         } else {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                setLatt(position.coords.latitude)
-                setLngt(position.coords.longitude)
-            })
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    setLatt(position.coords.latitude)
+                    setLngt(position.coords.longitude)
+                }
+            )
+
             var lattLngt = latt + ',' + lngt
             if (latt && lngt) {
                 dispatch(placeOrder(subTotal, lattLngt, address))
+                setLatt("")
+                setLngt("")
+                setAddress("")
+                setAddressType("")
+                setShow(false)
+            } else {
+                dispatch(placeOrder(subTotal, "error", address))
                 setLatt("")
                 setLngt("")
                 setAddress("")
