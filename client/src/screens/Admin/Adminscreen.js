@@ -31,10 +31,10 @@ const Adminscreen = () => {
                             <Link to={'/admin/userslist'} style={{ color: 'white' }} >Users List</Link>
                         </li>
                         <li>
-                            <Link to={'/admin/pizzaslist'} style={{ color: 'white' }} >Pizzas List</Link>
+                            <Link to={'/admin/pizzaslist'} style={{ color: 'white' }} >Foods List</Link>
                         </li>
                         <li>
-                            <Link to={'/admin/addpizza'} style={{ color: 'white' }} >Add New Pizza</Link>
+                            <Link to={'/admin/addpizza'} style={{ color: 'white' }} >Add New Food</Link>
                         </li>
                         <li>
                             <Link to={'/admin/orderslist'} style={{ color: 'white' }} >Orders List</Link>

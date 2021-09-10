@@ -17,7 +17,7 @@ const Pizzaslist = () => {
 
     return (
         <div>
-            Pizzas List
+            Foods List
             <hr />
             {loading && (<Loading />)}
             {error && (<Error error='Something went wrong!' />)}

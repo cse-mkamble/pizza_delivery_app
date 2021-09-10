@@ -17,7 +17,7 @@ const Navbar = () => {
             top: 0
         }}>
             <nav style={{ justifyContent: 'space-between' }} className="navbar navbar-expand-lg shadow-lg  mb-5 bg-white rounded ">
-                <a className="navbar-brand" href="/">PIZZA</a>
+                <a className="navbar-brand" href="/">FoodHub</a>
                 <div id="navbarNav">
                     <ul style={{ display: 'flex', listStyle: 'none', paddingLeft: '0px', marginBottom: '0px' }} >
                         {user ? (

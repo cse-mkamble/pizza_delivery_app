@@ -41,10 +41,10 @@ const Addpizza = () => {
 
             {loading && (<Loading />)}
             {error && (<Error error='Something went wrong!' />)}
-            {success && (<Success success='New Pizza Added Successfully.' />)}
+            {success && (<Success success='New Food Added Successfully.' />)}
 
             <div className="shadow-lg p-3 mb-5 bg-white rounded" style={{ textAlign: 'left', padding: '10px' }}>
-                ADD Pizza
+                ADD Food
                 <hr />
                 <form onSubmit={formHandle}>
                     <input
@@ -101,7 +101,7 @@ const Addpizza = () => {
                         style={{ margin: '20px 0', width: '240px' }}
                         type='submit'
                     >
-                        ADD PIZZA
+                        ADD FOOD
                     </button>
                 </form>
             </div>
