@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllOrders } from '../../redux/actions'
+import { getAllOrders, deliverOrder } from '../../redux/actions'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 
@@ -40,7 +40,7 @@ const Orderslist = () => {
                             <td>{order.userid}</td>
                             <td>{order.orderAmount}</td>
                             <td>{order.createdAt.substring(0, 10)}</td>
-                            <td>Status</td>
+                            <td>{order.isDelivered ? (<h1>Delivered</h1>) : (<button className="btn btn-danger" onClick={() => { dispatch(deliverOrder(order._id)) }} >Deliver</button>)}</td>
                         </tr>
                     })}
                 </tbody>

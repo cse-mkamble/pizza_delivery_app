@@ -36,3 +36,14 @@ export const getAllOrders = () => async (dispatch, getState) => {
         dispatch({ type: constants.GET_ALL_ORDERS_FAILED, payload: error })
     }
 }
+
+export const deliverOrder = (orderId) => async dispatch => {
+    try {
+        const res = await axios.post(`/api/orders/deliverorder`, {orderId})
+        alert('Order Delivered')
+        const data = await axios.get(`/api/orders/getallorders`)
+        dispatch({ type: constants.GET_ALL_ORDERS_SUCCESS, payload: data.data })
+    } catch (error) {
+        dispatch({ type: constants.GET_ALL_ORDERS_FAILED, payload: error })
+    }
+}

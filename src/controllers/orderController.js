@@ -42,6 +42,18 @@ class orderController {
         }
     }
 
+    async deliverOrder(request, response) {
+        const orderId = request.body.orderId
+        try {
+            const orders = await order.findOne({ _id: orderId })
+            orders.isDelivered = true
+            await orders.save()
+            response.send('Order Delivered Successfully')
+        } catch (error) {
+            return response.status(400).json({ message: error })
+        }
+    }
+
 }
 
 module.exports = new orderController()
