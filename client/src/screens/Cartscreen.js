@@ -1,9 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Checkout from '../components/Checkout'
 import { addToCart, deleteFromCart } from '../redux/actions'
 
 const Cartscreen = () => {
+
+    AOS.init()
 
     const cartState = useSelector(state => state.cartReducer)
     const cartItems = cartState.cartItems
@@ -12,7 +16,7 @@ const Cartscreen = () => {
 
     return (
         <div>
-            <div className="row justify-content-center" style={{ margin: 0 }}>
+            <div data-aos="fade-bottom" className="row justify-content-center" style={{ margin: 0 }}>
                 <div className="col-md-6">
                     <h2 style={{ fontSize: '40px' }}>My Cart</h2>
 

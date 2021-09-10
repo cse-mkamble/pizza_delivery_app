@@ -21,7 +21,7 @@ const Orderslist = () => {
             <hr />
             {loading && (<Loading />)}
             {error && (<Error error='Something went wrong!' />)}
-            <table className="table table-striped table-bordered" >
+            <table className="table table-striped table-bordered table-responsive-sm " >
                 <thead className="thead-dark">
                     <tr>
                         <th>Order Id</th>

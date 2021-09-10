@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Modal } from "react-bootstrap";
 import { useSelector, useDispatch } from 'react-redux';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { addToCart } from '../redux/actions'
 
 const Pizza = ({ pizza }) => {
+
+    AOS.init({
+        
+    })
 
     const [quantity, setquantity] = useState(1)
     const [varient, setvarient] = useState('small')
@@ -20,7 +26,11 @@ const Pizza = ({ pizza }) => {
 
     return (
         <div>
-            <div className='shadow-lg p-3 mb-5 bg-white rounded' >
+            <div
+                data-aos='zoom-in'
+                className='shadow-lg p-3 mb-5 bg-white rounded'
+                key={pizza._id}
+            >
                 <div onClick={handleShow}>
 
                     <h1>{pizza.name}</h1>

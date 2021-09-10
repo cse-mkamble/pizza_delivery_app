@@ -59,17 +59,16 @@ const Editpizza = ({ match }) => {
 
     return (
         <div>
-            Edit Pizza
-            <hr />
-            Pizza Id = {match.params.pizzaid}
-            <hr />
+
             {loading && (<Loading />)}
             {error && (<Error error='Something went wrong!' />)}
             {editloading && (<Loading />)}
             {editerror && (<Error error='Something went wrong!' />)}
             {editsuccess && (<Success success='Pizza Details Edited Successfully.' />)}
 
-            <div style={{ textAlign: 'left', padding: '10px' }}>
+            <div className="shadow-lg p-3 mb-5 bg-white rounded" style={{ textAlign: 'left', padding: '10px' }}>
+                Edit Pizza
+                <hr />
                 <form onSubmit={formHandle}>
                     <input
                         className="form-control w-100"

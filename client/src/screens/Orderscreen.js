@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { getUserOrders } from '../redux/actions'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 
 const Orderscreen = () => {
+
+    AOS.init()
 
     const dispatch = useDispatch()
     const orderstate = useSelector(state => state.getUserOdersReducer)
@@ -25,7 +29,7 @@ const Orderscreen = () => {
             {orders && orders.map((order) => {
                 return <div>
                     <div style={{ padding: '10px' }} >
-                        <div className="shadow-lg bg-white rounded" style={{ padding: '6px' }} >
+                        <div data-aos="fade-bottom" className="shadow-lg bg-white rounded" style={{ padding: '6px' }} >
                             <div className="text-left w-100">
                                 <h2 style={{ fontSize: '20px' }}>Items</h2>
                                 <table style={{ fontSize: '14px' }}>
