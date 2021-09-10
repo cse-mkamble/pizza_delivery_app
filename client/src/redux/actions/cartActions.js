@@ -34,3 +34,8 @@ export const deleteFromCart = (pizza) => (dispatch, getState) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
 
 }
+
+export const clearFromCart = () => (getState) => {
+    localStorage.removeItem('cartItems')
+    window.location.href = '/'
+}

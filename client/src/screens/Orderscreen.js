@@ -42,7 +42,7 @@ const Orderscreen = () => {
                                 <table style={{ fontSize: '14px' }}>
                                     <tbody>
                                         <tr><td>Order Amount</td><td>:</td><td>{order.orderAmount}</td></tr>
-                                        <tr><td>Date</td><td>:</td><td>{order.createdAt}</td></tr>
+                                        <tr><td>Date</td><td>:</td><td>{order.createdAt.substring(0, 10)}</td></tr>
                                         <tr><td>Order Id</td><td>:</td><td>{order._id}</td></tr>
                                     </tbody>
                                 </table>

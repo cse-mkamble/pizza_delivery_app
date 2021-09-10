@@ -1,5 +1,6 @@
 import axios from "axios"
 import { constants } from "../constants"
+import { clearFromCart } from "./cartActions"
 
 export const placeOrder = (subTotal, lattLngt, address) => async (dispatch, getState) => {
     const user = getState().loginUserReducer.user
@@ -11,6 +12,7 @@ export const placeOrder = (subTotal, lattLngt, address) => async (dispatch, getS
     } catch (error) {
         dispatch({ type: constants.PLACE_ORDER_FAILED, payload: error })
     }
+    dispatch(clearFromCart())
 }
 
 export const getUserOrders = () => async (dispatch, getState) => {
