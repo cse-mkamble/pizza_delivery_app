@@ -28,7 +28,6 @@ const Userslist = () => {
                         <tr>
                             <th>Name</th>
                             <th>Phone</th>
-                            <th>Is Admin</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                             <th>Actions</th>
@@ -39,11 +38,12 @@ const Userslist = () => {
                             return <tr>
                                 <td>{item.name}</td>
                                 <td>{item.phone}</td>
-                                <td>{item.isAdmin}</td>
                                 <td>{item.createdAt}</td>
                                 <td>{item.updatedAt}</td>
                                 <td>
-                                    <i className='fa fa-trash m-2' style={{ color: 'red' }} onClick={() => { dispatch(deleteUser(item._id)) }} ></i>
+                                    {item.isAdmin ? ("") : (
+                                        <i className='fa fa-trash m-2' style={{ color: 'red' }} onClick={() => { dispatch(deleteUser(item._id)) }} ></i>
+                                    )}
                                 </td>
                             </tr>
                         })}

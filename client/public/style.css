@@ -26,7 +26,6 @@ body {
   margin: 0;
   height: 100%;
   font-family: 'Montserrat', sans-serif !important;
-  overflow-x: hidden !important;
 }
 
 .App {
@@ -126,6 +125,13 @@ td, th, tr{
 
 
 @media screen and (max-width: 600px) {
+
+  body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif !important;
+    overflow-x: hidden !important;
+  }
   
   .adminfunctions li{
     list-style-type: none !important;

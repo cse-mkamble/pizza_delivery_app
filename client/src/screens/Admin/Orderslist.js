@@ -25,10 +25,12 @@ const Orderslist = () => {
                 <thead className="thead-dark">
                     <tr>
                         <th>Order Id</th>
-                        <th>Email</th>
+                        <th>Phone</th>
                         <th>User Id</th>
                         <th>Amount</th>
                         <th>Date</th>
+                        <th>Position</th>
+                        <th>Shipping Address</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -36,10 +38,12 @@ const Orderslist = () => {
                     {orders && orders.map(order => {
                         return <tr>
                             <td>{order._id}</td>
-                            <td>{order.email}</td>
-                            <td>{order.userid}</td>
+                            <td>{order.phone}</td>
+                            <td>{order.user_id}</td>
                             <td>{order.orderAmount}</td>
-                            <td>{order.createdAt.substring(0, 10)}</td>
+                            <td>{order.createdAt}</td>
+                            <td>{order.lattLngt}</td>
+                            <td>{order.shippingAddress}</td>
                             <td>{order.isDelivered ? (<h1>Delivered</h1>) : (<button className="btn btn-danger" onClick={() => { dispatch(deliverOrder(order._id)) }} >Deliver</button>)}</td>
                         </tr>
                     })}

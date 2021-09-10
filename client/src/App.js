@@ -7,7 +7,7 @@ import Cartscreen from './screens/Cartscreen'
 import Loginscreen from './screens/Loginscreen'
 import Registerscreen from './screens/Registerscreen'
 import Orderscreen from './screens/Orderscreen'
-import Adminscreen from './Admin/screens/Adminscreen'
+import Adminscreen from './screens/Admin/Adminscreen'
 
 const App = () => {
   return (
