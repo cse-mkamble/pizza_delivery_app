@@ -28,3 +28,23 @@ export const logoutUser = (user) => async dispatch => {
     localStorage.removeItem('user')
     window.location.href = '/'
 }
+
+export const getAllUser = () => async dispatch => {
+    dispatch({ type: constants.GET_ALL_USER_REQUEST })
+    try {
+        const res = await axios.get(`/api/user/getallusers`)
+        dispatch({ type: constants.GET_ALL_USER_SUCCESS, payload: res.data })
+    } catch (error) {
+        dispatch({ type: constants.GET_ALL_USER_FAILED, payload: error })
+    }
+}
+
+export const deleteUser = (userId) => async dispatch => {
+    try {
+        const res = await axios.post(`/api/user/deleteuser`, { userId })
+        alert('User Delete Successfully.')
+        window.location.reload()
+    } catch (error) {
+        alert('Something went wrong.')
+    }
+}

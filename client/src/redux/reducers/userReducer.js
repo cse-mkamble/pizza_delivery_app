@@ -42,3 +42,27 @@ export const loginUserReducer = (state = {}, action) => {
             return state
     }
 }
+
+export const getAllUserReducer = (state = {
+    users: []
+}, action) => {
+    switch (action.type) {
+        case constants.GET_ALL_USER_REQUEST:
+            return {
+                loading: true,
+                ...state
+            }
+        case constants.GET_ALL_USER_SUCCESS:
+            return {
+                loading: false,
+                users: action.payload
+            }
+        case constants.GET_ALL_USER_FAILED:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}

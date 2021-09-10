@@ -26,6 +26,25 @@ class userController {
     }
   }
 
+  async getAllUser(request, response) {
+    try {
+      const data = await User.find({})
+      response.send(data)
+    } catch (error) {
+      return response.status(400).json({ message: error })
+    }
+  }
+
+  async deleteUser(request, response) {
+    const userId = request.body.userId
+    try {
+      const data = await User.findOneAndDelete({ _id: userId })
+      response.send('User Deleted Successfully.')
+    } catch (error) {
+      return response.status(400).json({ message: 'Something went wrong!' })
+    }
+  }
+
 }
 
 module.exports = new userController()
